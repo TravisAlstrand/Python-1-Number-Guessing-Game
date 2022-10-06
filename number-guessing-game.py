@@ -6,7 +6,7 @@ Project 1 - Number Guessing Game
 # import the random package
 import random
 
-high_score = 10
+high_score = 0
 
 # function to start the game
 def start_game():
@@ -21,7 +21,8 @@ def start_game():
   
   # display a welcome message
   print("*** Welcome to the Number Guessing Game! ***")
-  print("The current High Score is {} attempts! Good Luck!".format(high_score))
+  if high_score > 0:
+    print("The current High Score is {} attempts! Good Luck!".format(high_score))
 
 
   # loop while the player's guess is incorrect
@@ -61,7 +62,7 @@ def start_game():
   print("It took you {} tries to guess it!".format(guess_attempts))
 
   # set new high score if it's lower than the current.
-  if guess_attempts < high_score:
+  if guess_attempts < high_score or high_score == 0:
     high_score = guess_attempts
 
   # prompt player to play again
